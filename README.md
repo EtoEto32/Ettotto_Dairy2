@@ -97,3 +97,10 @@ npm run preview
   - Markdown / MDX ファイルを追加して記事を増やす
 - `my-blog/src/layouts/BlogPost.astro`
   - 記事ページのレイアウト・デザインを調整
+## pagesプロジェクト作成  
+CloudflarePagesのUIが分かりづらい。
+https://qiita.com/q-1-p/items/37209f221a74752078dc
+```
+wrangler pages project create <projectname>
+```
+
