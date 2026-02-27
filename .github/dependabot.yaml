@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "frontend/"
+    schedule:
+      interval: "daily"
+      timezone: "Asia/Tokyo"
+      time: "00:00"
+    target-branch: "dev"
+    # dependabotのpull requestを実質無制限にする
+    open-pull-requests-limit: 10000
