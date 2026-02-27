@@ -1,4 +1,4 @@
-# Ettotto_Dairy2
+# CTF_Blog
 CTF Writeup 用のブログ兼メモ置き場（Astro 製）
 
 ### 参考文献
