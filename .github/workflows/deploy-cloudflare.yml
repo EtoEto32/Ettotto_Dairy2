@@ -30,7 +30,10 @@ jobs:
         run: npm ci
 
       - name: Build Astro site
-        run: npm run build
+        run: npm run 
+
+      - name: install latest wrangler
+        run: npm install -g wrangler@latest
 
       - name: Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
