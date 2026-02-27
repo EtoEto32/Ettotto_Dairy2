@@ -19,7 +19,7 @@
 /* あなたのカスタムフォントファミリーを登録し、ブラウザにその場所を伝えます。 */
 @font-face {
 	font-family: 'DistantGalaxy';
-	src: url('/fonts/kyoka.ttf') format('truetype');
+	src: url('/fonts/kyoka.woff') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;

@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "wrangler": "^4.69.0"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.6.5"
+  }
+}
