@@ -8,7 +8,6 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Astro / build artifacts (root side, my-blog 側は my-blog/.gitignore で管理)
-dist/
 .astro/
 
 # Editor / OS
