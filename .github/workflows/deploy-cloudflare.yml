@@ -9,20 +9,19 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest 
+    # 実行環境は Ubuntu 22.04 LTS
     defaults:
       run:
         working-directory: my-blog
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 'lts/*'
           cache: npm
           cache-dependency-path: my-blog/package-lock.json
 
@@ -32,12 +31,12 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Publish to Cloudflare Pages
+      - name: Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
+          projectName: Ettotto_CTF
           directory: ./my-blog/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main
