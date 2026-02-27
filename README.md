@@ -1,5 +1,5 @@
 # Ettotto_Dairy2
-メインのblog用
+CTF Writeup 用のブログ兼メモ置き場（Astro 製）
 
 ### 参考文献
 https://qiita.com/Michinosuke/items/09c30fde4ca7168f96ef#%E6%89%80%E8%A6%81%E6%99%82%E9%96%93
@@ -28,18 +28,18 @@ ettotto_diary2/
 └── README.md                # （このファイル）リポジトリ全体の概要
 ```
 
-## 技術スタック
+## 技術スタック / 構成
 
 - **フレームワーク**: Astro 5 系（ブログスターター）
 - **言語**: TypeScript / Astro (`.astro` ファイル)
 - **パッケージマネージャ**: npm
 - **主な機能**
-  - Markdown / MDX ベースのブログ記事
+  - CTF Writeup / 技術メモを Markdown / MDX で管理
   - RSS フィード (`@astrojs/rss`)
   - サイトマップ (`@astrojs/sitemap`)
-  - シンプルなブログレイアウト
+  - シンプルなブログレイアウト（`BlogPost.astro` ベース）
 
-## 開発環境の使い方
+## 開発環境の使い方（ローカル）
 
 開発は `my-blog` ディレクトリをルートとして行います。
 
@@ -58,7 +58,7 @@ npm run dev
 # → http://localhost:4321 でブログを確認
 ```
 
-本番環境ビルドやプレビューは以下のコマンドを利用してください。
+本番ビルドやプレビューは以下のコマンドを利用してください。
 
 ```bash
 # 本番ビルド
@@ -67,6 +67,25 @@ npm run build
 # ビルド結果のローカルプレビュー
 npm run preview
 ```
+
+## デプロイ / CI（Cloudflare Pages）
+
+- **ホスティング先**: Cloudflare Pages（プロジェクト名: `Ettotto_Dairy2` 想定）
+- **CI/CD**: GitHub Actions で `main` ブランチへの push をトリガーに、自動デプロイ
+  - ワークフロー定義: `.github/workflows/deploy-cloudflare.yml`
+  - 手順（GitHub Actions 内）:
+    - `cd my-blog`
+    - `npm ci`
+    - `npm run build` → `my-blog/dist` を生成
+    - `wrangler pages deploy my-blog/dist --branch main --project-name Ettotto_Dairy2`
+- 必要な GitHub Secrets:
+  - `CLOUDFLARE_API_TOKEN`: Cloudflare API Token（Pages へのデプロイ権限付き）
+  - `CLOUDFLARE_ACCOUNT_ID`: Cloudflare Account ID
+
+ブランチ運用の想定:
+
+- `dev` ブランチで開発 → PR → `main` にマージ
+- `main` にマージ / push されたタイミングで CI が走り、Cloudflare Pages に反映される。
 
 ## 今後のカスタマイズ方針メモ
 
