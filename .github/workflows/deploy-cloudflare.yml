@@ -37,7 +37,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: Ettotto_CTF
-          directory: ./my-blog/dist
+          directory: ../../my-blog/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main
 
